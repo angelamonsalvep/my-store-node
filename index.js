@@ -38,7 +38,51 @@ app.get('/categories/:categoryId/products/:productId', (req, res) => {
     categoryId,
     productId,
   })
-})
+});
+
+app.get('/users', (req, res) => {
+  res.json([
+    {
+      name: 'User 1',
+      email: 'user1@xxx.com'
+    },
+    {
+      name: 'User 2',
+      email: 'user2@xxx.com'
+    }
+  ]);
+});
+
+app.get('/users/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    id,
+    name: 'User 1',
+    email: 'user1@xxx.com'
+  })
+});
+
+app.get('/categories', (req, res) => {
+  res.json([
+    {
+      name: 'Category 1'
+    },
+    {
+      name: 'Category 2'
+    },
+    {
+      name: 'Category 3'
+    }
+  ]);
+});
+
+app.get('/categories/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({
+    id,
+    name: 'Category 2'
+  })
+});
 
 app.listen(port, () => {
   console.log('Mi port' + port);
